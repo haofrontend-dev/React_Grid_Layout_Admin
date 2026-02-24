@@ -1,11 +1,12 @@
-import Dashboard from './components/Dashboard'
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+    // Force dark mode globally for the premium builder look
+    <div className="min-h-screen dark bg-slate-950 text-slate-100 selection:bg-indigo-500/30">
       <Dashboard />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

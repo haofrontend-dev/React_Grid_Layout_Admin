@@ -39,3 +39,8 @@ body {
     background-color: #334155;
   }
 }
+
+/* Recharts override to ensure it takes space */
+.recharts-responsive-container {
+  min-height: 0; 
+}

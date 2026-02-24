@@ -13,7 +13,7 @@ const data = [
 const RevenueChart = () => {
     return (
         <div className="h-full w-full flex flex-col">
-            <div className="mb-4 px-2">
+            <div className="mb-2 px-2">
                 <h4 className="text-lg font-bold text-slate-800 dark:text-white">Revenue Overview</h4>
                 <p className="text-xs text-slate-500">Monthly revenue analytics</p>
             </div>

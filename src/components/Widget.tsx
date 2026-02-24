@@ -37,11 +37,19 @@ const Widget = React.forwardRef<HTMLDivElement, WidgetProps>(({
             onMouseDown={onMouseDown}
             onMouseUp={onMouseUp}
             onTouchEnd={onTouchEnd}
-            className={`bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden transition-shadow hover:shadow-md ${className || ''}`}
+            // Glassmorphism Style
+            className={`
+                bg-slate-900/60 backdrop-blur-xl 
+                rounded-2xl shadow-2xl 
+                border border-white/5 
+                flex flex-col overflow-hidden 
+                transition-all duration-300 hover:shadow-indigo-500/10 hover:border-white/10
+                ${className || ''}
+            `}
             {...props}
         >
-            <div className={`flex items-center justify-between px-4 py-3 border-b border-slate-100 dark:border-slate-700/50 drag-handle cursor-move group ${title === 'Statistic' ? 'hidden' : ''}`}>
-                <h3 className="font-semibold text-slate-700 dark:text-slate-200 text-sm truncate select-none flex items-center gap-2">
+            <div className={`flex items-center justify-between px-5 py-4 border-b border-white/5 drag-handle cursor-move group ${title === 'Statistic' ? 'hidden' : ''}`}>
+                <h3 className="font-semibold text-slate-200 text-sm truncate select-none flex items-center gap-2 tracking-wide">
                     {/* Add a subtle grab icon on hover later if needed */}
                     {title}
                 </h3>
@@ -51,7 +59,7 @@ const Widget = React.forwardRef<HTMLDivElement, WidgetProps>(({
                             e.stopPropagation();
                             onRemove();
                         }}
-                        className="text-slate-300 hover:text-red-500 transition-colors bg-transparent p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-700 opacity-0 group-hover:opacity-100"
+                        className="text-slate-400 hover:text-red-400 transition-colors bg-transparent p-1.5 rounded-lg hover:bg-white/5 opacity-0 group-hover:opacity-100"
                         aria-label="Remove widget"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -60,7 +68,7 @@ const Widget = React.forwardRef<HTMLDivElement, WidgetProps>(({
                     </button>
                 )}
             </div>
-            <div className="flex-1 p-4 overflow-auto relative">
+            <div className="flex-1 p-4 overflow-hidden relative text-slate-300">
                 {children}
             </div>
         </div>
